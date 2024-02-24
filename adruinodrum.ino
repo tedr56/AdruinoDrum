@@ -31,8 +31,8 @@ byte status1;
 int pin = 0;     
 int hitavg = 0;
 
-boolean debug = false
-int debugedPin = 0
+boolean debug = false;
+int debugedPin = 0;
 
 void debugPin(int currentPin) {
   if (debug == true) {
