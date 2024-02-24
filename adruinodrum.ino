@@ -30,6 +30,18 @@ byte status1;
 
 int pin = 0;     
 int hitavg = 0;
+
+boolean debug = false
+int debugedPin = 0
+
+void debugPin(int currentPin) {
+  if (debug == true) {
+    if (currentPin == debugedPin) {
+      Serial.println(hitavg);
+    }
+  }
+}
+
 //*******************************************************************************************************************
 // Setup
 //*******************************************************************************************************************
@@ -45,14 +57,13 @@ void loop()
 {
   for(int pin=0; pin < 16; pin++)                          //
   {
-    //int pin = 3;
-    //   for (pinRead=0; pinRead < 16, pin++){
     hitavg = analogRead(pinAssignments[pin]);  
-    //Serial.println(hitavg);   
-    // read the input pin
 
+    debugPin(pin);
+    
     if((hitavg > PadCutOff[pin]))
     {
+      //debugPin(pin);
       if((activePad[pin] == false))
       {
         if(VelocityFlag == true)
